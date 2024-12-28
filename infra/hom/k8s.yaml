@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hoshi
+  name: hoshi
+  namespace: uat
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hoshi
+  template:
+    metadata:
+      labels:
+        app: hoshi
+    spec:
+      containers:
+      - image: rotoku/hoshi:1.0.0
+        name: hoshi
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: uat
+  name: hoshi
+  labels:
+    app: hoshi
+spec:
+  selector:
+    app: hoshi
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      name: tcp-app
+  type: ClusterIP

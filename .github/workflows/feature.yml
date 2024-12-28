@@ -1,0 +1,16 @@
+name: "Feature"
+
+on:
+  push:
+    branches: 
+      - "feature/**"
+      - "hotfix/**"
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          ls -lrth --color
+        shell: bash

@@ -1,0 +1,43 @@
+{
+  "name": "hoshi",
+  "version": "1.0.0",
+  "description": "Hoshi (Gestão escolar)",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kumabes-org/hoshi.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "Hoshi",
+    "Gestão",
+    "escolar"
+  ],
+  "author": "rotoku",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kumabes-org/hoshi/issues"
+  },
+  "homepage": "https://github.com/kumabes-org/hoshi#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "chalk": "^4.1.2",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "moment": "^2.30.1",
+    "swagger-stats": "^0.99.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7"
+  }
+}
