@@ -12,7 +12,7 @@ jobs:
       environment: "production"
       working-directory: "app"
       shell: "bash"
-      project-name: "profin"
+      project-name: "hoshi"
       java-distribution: "zulu"
       java-version: "21"
       gradle-version: "8.8"
@@ -32,7 +32,7 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: "profin"
+          name: "hoshi"
           path: "./app/build"
 
       - name: Display structure of downloaded files
@@ -54,7 +54,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: rotoku/profin
+          images: rotoku/hoshi
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -63,6 +63,6 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tags }}
-            rotoku/profin:${{ github.sha }}
-            rotoku/profin:latest
+            rotoku/hoshi:${{ github.sha }}
+            rotoku/hoshi:latest
           labels: ${{ steps.meta.outputs.labels }}
