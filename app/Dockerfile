@@ -1,15 +1,13 @@
-FROM node:20-alpine3.19
+FROM alpine/java:21-jdk
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+USER root
 
-WORKDIR /home/node/app
+RUN addgroup -S spring && adduser -S spring -G spring
 
-COPY package*.json ./
+USER spring:spring
 
-USER node
+COPY build/libs/*.jar /app/app.jar
 
-COPY --chown=node:node . .
+EXPOSE 8080
 
-EXPOSE 3000
-
-CMD [ "node", "index.js" ]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
